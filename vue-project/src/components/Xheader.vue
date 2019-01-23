@@ -1,9 +1,8 @@
 <template>
-  <div
+    <div
     data-v-adf86b90
     class="van-hairline--bottom infzm-header van-nav-bar"
     slot="header"
-    style="z-index: 1;"
   >
     <div class="van-nav-bar__left">
       <router-link to="/RouterLogin" data-v-adf86b90 class="infzm-header__btnLeft van-icon van-icon-user"></router-link>
@@ -21,6 +20,11 @@
 export default {};
 </script>
 <style scoped>
+.van-hairline--bottom{
+  position:fixed;
+  z-index: 5;
+  width:100%;
+}
 </style>
 
 
