@@ -1,92 +1,98 @@
+const express = require('express');
+const router = express.Router();
 const {
-    MongoClient,
-    ObjectId
-} = require('mongodb');
-// Connection URL
-const url = 'mongodb://localhost:27017';
-// Database Name
-const dbName = '1810';
-// Use connect method to connect to the server
-let connect = () => {
-    return new Promise((resolve, reject) => {
-        MongoClient.connect(url, (err, client) => {
-            if (err) {
-                reject(err)
-            } else {
-                console.log("Connected successfully to server");
-                const db = client.db(dbName);
-                resolve({
-                    db,
-                    client
-                })
-            }
-        });
-    })
-}
-
-let insert = (col, arr) => {
-    return new Promise(async (resolve, reject) => {
-        let {
-            db,
-            client
-        } = await connect();
-        const collection = db.collection(col);
-        collection.insertMany(arr, (err, result) => {
-            if (err) {
-                reject(err)
-            } else {
-                resolve(result);
-                client.close();
-            }
-        })
-    })
-}
-
-let find = (col, obj) => {
-    return new Promise(async (resolve, reject) => {
-        let {
-            db,
-            client
-        } = await connect();
-        const collection = db.collection(col);
-        collection.find({
-            ...obj
-        }).toArray(function (err, docs) {
-            if (err) {
-                reject(err)
-            } else {
-                resolve(docs);
-                client.close();
-            }
-        });
-    })
-}
-let sort = (col, obj, obj2) => {
-    return new Promise(async (resolve, reject) => {
-        let {
-            db,
-            client
-        } = await connect();
-        const collection = db.collection(col);
-        collection.find({
-            ...obj
-        }).sort({
-            ...obj2
-        }).toArray(function (err, docs) {
-            if (err) {
-                reject(err)
-            } else {
-                resolve(docs);
-                client.close();
-            }
-        });
-    })
-}
-
-module.exports = {
     connect,
     insert,
     find,
     ObjectId,
-    sort
-}
+    update,
+    del
+} = require("../libs/mongo.js");
+/* GET users listing. */
+router.get('/', function (req, res, next) {
+    res.send('respond with a resource');
+});
+
+// 查询
+router.get('/getNews', async (req, res, next) => {
+    let {author} = req.query
+    console.log(author)
+    let data = await find(`news`, author ? {
+        author
+    } : {})
+    res.send(data);
+});
+// 增
+router.get('/billAdd', async (req, res, next) => {
+    let {
+        name,
+        asupplierge,
+        price,
+        pay,
+        time
+    } = req.query
+    // console.log(name)
+    let data = await insert(`list`, [{
+        name: name,
+        asupplierge: asupplierge,
+        price: price,
+        pay: pay,
+        time: time
+    }])
+    res.send(data);
+});
+// 改
+router.get('/billUpdate', async (req, res, next) => {
+    let {
+        id,
+        val1,
+        val2,
+        val3,
+        val4,
+        val5
+    } = req.query
+    await update('list', { _id: ObjectId(id) }, {
+        name: val1,
+        asupplierge: val2,
+        price: val3,
+        pay: val4,
+        time: val5
+    });
+
+});
+// 删
+router.get('/updata', async (req, res, next) => {
+    let {
+        _id
+    } = req.query
+    let data = await del('list', { _id: ObjectId(_id) });
+    res.send('succes');
+});
+// 查（登录）
+router.post('/login', async (req, res, next) => {
+    let {
+        user,
+        mima
+    } = req.body
+    let data = await find(`username`, user ? {
+        user
+    } : {})
+    // console.log(user,mima);
+    if (data.length == 0) {
+        res.send({status:'fail'});
+    } else if (data[0].mima == mima) {
+        res.send({
+            status:'success',
+            token: token.createToken({
+                user,
+                mima
+            },60)
+        });
+    } else {
+        res.send({status:'fail'});
+    }
+});
+router.post('/autoLogin', async (req, res, next) =>{
+    res.send(token.checkToken(req.headers.token)); 
+});
+module.exports = router;

@@ -72,3 +72,61 @@
 .infzm-layout--fixed-nav>.infzm-layout__wrapper>.van-pull-refresh__track {
     min-height: calc(100vh - 2.43rem)
 }
+
+.menu[data-v-7ffed230] {
+    padding: 3.2px 0 6.4px;
+    padding: .2rem 0 .4rem;
+    margin: 0 2.4px;
+    margin: 0 .15rem
+}
+
+.menu>button[data-v-7ffed230] {
+    color: #666;
+    width: 30.72px;
+    width: 1.92rem;
+    height: 12.8px;
+    height: .8rem;
+    padding: 0;
+    line-height: 1;
+    background-color: #f6f6f6;
+    margin: 3.2px 4px;
+    margin: .2rem .25rem
+}
+
+.menu__title[data-v-7ffed230] {
+    margin: 8.48px 4.32px;
+    margin: .53rem .27rem;
+    font-size: 6.4px;
+    font-size: .4rem;
+    font-weight: 400
+}
+
+.search__title[data-v-7ffed230] {
+    margin: 6.4px 6.4px 0;
+    margin: .4rem .4rem 0;
+    color: #bbb;
+    font-size: 5.92px;
+    font-size: .37rem
+}
+
+.search-input[data-v-7ffed230] {
+    padding-top: 1.12px;
+    padding-top: .07rem;
+    padding-bottom: 1.12px;
+    padding-bottom: .07rem;
+    margin-top: 3.2px;
+    margin-top: .2rem;
+    margin-left: 4.32px;
+    margin-left: .27rem
+}
+
+.search-input__icon[data-v-7ffed230] {
+    line-height: 1.5;
+    color: #aaa;
+    margin-right: 2.08px;
+    margin-right: .13rem
+}
+
+.search-input__icon[data-v-7ffed230]:before {
+    vertical-align: inherit
+}
