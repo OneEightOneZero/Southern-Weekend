@@ -7,8 +7,10 @@ import './css/index.css'
 //引入footer样式
 import './css/footer.css'
 //引入recommendSearch样式
-import './css/recommendSearch.css'
-
+// 引入Element
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 Vue.config.productionTip = false
 
 new Vue({
