@@ -4,6 +4,7 @@
     <Xnavigation></Xnavigation>
     <Xbanner></Xbanner>
     <Xfooter></Xfooter>
+    <router-view></router-view>
   </div>
 </template>
 

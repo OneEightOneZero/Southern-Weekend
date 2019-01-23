@@ -1,5 +1,5 @@
 <template>
-  <el-carousel height="150px" :interval="5000" arrow="always">
+  <el-carousel height="180px" :interval="5000" arrow="always">
     <el-carousel-item v-for="(item,index) in imglist" :key="index">
         <img :src="item" alt="">
     </el-carousel-item>
@@ -22,7 +22,7 @@ export default {
 <style scoped>
   .el-carousel__item img {
     width:100%;
-    height: 150px;
+    height: 180px;
   }
   
   .el-carousel__item:nth-child(2n) {
