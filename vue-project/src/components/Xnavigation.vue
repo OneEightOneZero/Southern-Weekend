@@ -8,17 +8,25 @@ export default {
   data(){
     return{
       list:['推荐','新闻','观点','文化','人物','影像','专题','生活'],
+      routerlink:['recommend','new'],
       active:0
     }
   },
   methods:{
     changeActive(idx){
-      this.active=idx
+      this.active=idx,
+      this.$router.push({name:this.routerlink[idx]})
     }
   }
 };
 </script>
 <style>
+.van-nav{
+  position:fixed;
+  z-index: 5;
+  width:100%;
+  top:46px;
+}
 </style>
 
 

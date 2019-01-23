@@ -20,6 +20,10 @@ export default {
 </script>
 
 <style scoped>
+  .el-carousel{
+    position: relative;
+    top:92px;
+  }
   .el-carousel__item img {
     width:100%;
     height: 150px;

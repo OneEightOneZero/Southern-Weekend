@@ -8,10 +8,23 @@ Vue.use(VueRouter)
 import App from '../App.vue'
 import RecommendSearch from '../routers/recommendSearch.vue'
 
+//二层路由
+import Recommend from '../routers/recommend.vue'
+import New from '../routers/new.vue'
+
 //配置路由
 const routes = [{
     path: '/app',
-    component: App
+    component: App,
+    children: [{                                 
+        path: 'recommend',
+        name:'recommend',
+        component: Recommend
+    },{                                 
+        path: 'new',
+        name:"new",
+        component: New
+    }]
 },{
     path: '/recommendSearch',
     component: RecommendSearch

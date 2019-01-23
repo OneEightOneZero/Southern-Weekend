@@ -12,6 +12,8 @@
   </div>
 </template>
 <script>
+//引入recommendSearch样式
+import '../css/recommendSearch.css'
 export default {
     data(){
         return{

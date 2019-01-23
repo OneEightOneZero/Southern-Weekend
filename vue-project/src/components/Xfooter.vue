@@ -29,9 +29,17 @@
   </footer>
 </template>
 <script>
+//引入footer样式
+import '../css/footer.css'
+
 export default {};
 </script>
 <style scoped>
+.infzm-footer{
+  position:relative;
+  bottom:-150px;
+  z-index:5;
+}
 </style>
 
 
