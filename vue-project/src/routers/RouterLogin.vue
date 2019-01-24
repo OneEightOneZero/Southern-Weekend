@@ -14,7 +14,7 @@
       <span>
         <input type="checkbox" value> 记住密码
       </span>
-      <button @click="add">登录</button>
+      <button>登录</button>
       <router-link to="/RouterEnter" class="zhuce">免费注册？</router-link>
     </div>
   </div>
