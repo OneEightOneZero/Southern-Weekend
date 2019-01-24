@@ -41,15 +41,12 @@ router.post('/RouterLogin',bodyParser.urlencoded({ extended: false }), async (re
     }
 });
 // 增
-router.post('/RouterEnter', async (req, res, next) => {
-    let {
+router.post('/RouterEnter', bodyParser.urlencoded({ extended: false }),async (req, res, next) => {
+    let {name,password} = req.body
+    password = isNaN(password) ? password : password*1;
+    let data = await insert(`user`, [{
         name,
         password
-    } = req.query
-    // console.log(name)
-    let data = await insert(`user`, [{
-        name: user,
-        password:psw
     }])
     res.send(data);
 });

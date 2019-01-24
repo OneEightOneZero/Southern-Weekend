@@ -38,7 +38,7 @@ export default {
         this.$axios({
           method: "post",
           url: "http://localhost:3000/setting/RouterLogin",
-          data: { name: user, password: psw },
+          data: { "name": user, "password": psw },
           transformRequest: function(obj) {
             var str = [];
             for (var p in obj) {

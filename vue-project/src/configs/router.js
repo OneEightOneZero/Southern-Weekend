@@ -20,6 +20,7 @@ import People from '../routers/People.vue'
 import Image from '../routers/Image.vue'
 import Special from '../routers/Special.vue'
 import Live from '../routers/Live.vue'
+import Details from '../routers/Details.vue'
 
 //配置路由
 const routes = [{
@@ -68,8 +69,8 @@ const routes = [{
     path: '/routerLogin',
     component: RouterLogin  
 },{
-    path: '/routerLogin',
-    component: RouterLogin  
+    path: '/details/:id',
+    component: Details  
 }
 ]
 
