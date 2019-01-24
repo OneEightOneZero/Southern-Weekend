@@ -69,11 +69,12 @@ router.get('/updata', async (req, res, next) => {
     res.send('succes');
 });
 // 查（登录）
-router.post('/RouterLogin', async (req, res, next) => {
+router.post('/getMsg', async (req, res, next) => {
     let {
         user,
         mima
     } = req.body
+    mima = isNaN(mima) ? mima : mima*1;
     let data = await find(`name`, user ? {
         user
     } : {})
@@ -83,10 +84,7 @@ router.post('/RouterLogin', async (req, res, next) => {
     } else if (data[0].mima == mima) {
         res.send({
             status:'success',
-            token: token.createToken({
-                user,
-                mima
-            },60)
+            
         });
     } else {
         res.send({status:'fail'});

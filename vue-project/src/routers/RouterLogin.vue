@@ -19,37 +19,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      list: []
-    };
-  },
-  methods: {
-    add() {
-      let user = this.$refs.user.value;
-      let mima = this.$refs.mima.value;
-      if (user == "") {
-        this.$alert("手机号码不能为空");
-      } else if (mima == "") {
-        this.$alert("密码不能为空");
-      } else {
-            this.$axios({
-                method: "post",
-                url: "http://localhost:3000/RouterLogin",
-                data: this.$qs.stringify({
-                    name: "user"
-                    
-                })
-                }).then(res => {
-                console.log(res);
-            });
-      }
-    }
-  }
-};
-</script>
+
 
 <style scoped>
 #box {
