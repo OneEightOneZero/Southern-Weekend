@@ -6,10 +6,10 @@
         class="van-hairline--bottom van-nav-bar van-nav-bar--flex"
         style="z-index: 1;"
       >
-        <div class="van-nav-bar__left">
+        <router-link to="/app" class="van-nav-bar__left">
           <i class="van-icon van-icon-arrow van-nav-bar__arrow">
           </i>
-        </div>
+        </router-link>
         <div class="van-ellipsis van-nav-bar__title">
           <div data-v-7ffed230 class="search-input van-input van-input--circle">
             <i data-v-7ffed230 class="search-input__icon van-icon van-icon-search">

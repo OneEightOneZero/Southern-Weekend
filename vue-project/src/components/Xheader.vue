@@ -5,15 +5,15 @@
     slot="header"
   >
     <div class="van-nav-bar__left">
-      <i data-v-adf86b90 class="infzm-header__btnLeft van-icon van-icon-user"></i>
+      <router-link to="/RouterLogin" data-v-adf86b90 class="infzm-header__btnLeft van-icon van-icon-user"></router-link>
       <i data-v-adf86b90 class="infzm-header__btnVip van-icon van-icon-vip-entry"></i>
     </div>
     <div class="van-ellipsis van-nav-bar__title">
       <i data-v-adf86b90 class="infzm-header__logo van-icon van-icon-logo-infzm"></i>
     </div>
-    <div class="van-nav-bar__right">
+    <router-link to="/recommendSearch" class="van-nav-bar__right">
       <i data-v-adf86b90 class="infzm-header__btnRight van-icon van-icon-menu2"></i>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>
