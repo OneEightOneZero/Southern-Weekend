@@ -69,12 +69,12 @@ router.get('/updata', async (req, res, next) => {
     res.send('succes');
 });
 // 查（登录）
-router.post('/login', async (req, res, next) => {
+router.post('/RouterLogin', async (req, res, next) => {
     let {
         user,
         mima
     } = req.body
-    let data = await find(`username`, user ? {
+    let data = await find(`name`, user ? {
         user
     } : {})
     // console.log(user,mima);

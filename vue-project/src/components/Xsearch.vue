@@ -6,7 +6,7 @@
         class="van-hairline--bottom van-nav-bar van-nav-bar--flex"
         style="z-index: 1;"
       >
-        <router-link to="/app" class="van-nav-bar__left">
+        <router-link to="/app/recommend" class="van-nav-bar__left">
           <i class="van-icon van-icon-arrow van-nav-bar__arrow">
           </i>
         </router-link>
