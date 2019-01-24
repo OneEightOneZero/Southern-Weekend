@@ -47,7 +47,7 @@ export default {
                     method: "post",
                     url: "http://localhost:3000/setting/RouterEnter",
                     data: { 'name': user, 'password': psw },
-                    })
+                    }) 
                 } 
 
          }

@@ -48,8 +48,8 @@ router.post('/RouterEnter', async (req, res, next) => {
     } = req.query
     // console.log(name)
     let data = await insert(`user`, [{
-        name: user,
-        password:psw
+        'name': name,
+        'password':password
     }])
     res.send(data);
 });
