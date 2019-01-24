@@ -9,12 +9,12 @@
       <span>
         <i>密码</i>
         <br>
-        <input type="text" ref="mima" placeholder="密码">
+        <input type="text" ref="psw" placeholder="密码">
       </span>
       <span>
         <input type="checkbox" value> 记住密码
       </span>
-      <button>登录</button>
+      <button @click="add">登录</button>
       <router-link to="/RouterEnter" class="zhuce">免费注册？</router-link>
     </div>
   </div>
@@ -29,22 +29,36 @@ export default {
   methods: {
     add() {
       let user = this.$refs.user.value;
-      let mima = this.$refs.mima.value;
+      let psw = this.$refs.psw.value;
+      console.log(user, psw);
       if (user == "") {
         this.$alert("手机号码不能为空");
-      } else if (mima == "") {
+      } else if (psw == "") {
         this.$alert("密码不能为空");
       } else {
-            this.$axios({
-                method: "post",
-                url: "http://localhost:3000/RouterLogin",
-                data: this.$qs.stringify({
-                    name: "user"
-                    
-                })
-                }).then(res => {
-                console.log(res);
-            });
+        this.$axios({
+          method: "post",
+          url: "http://localhost:3000/setting/RouterLogin",
+          data: { "name": user, "password": psw },
+          transformRequest: function(obj) {
+            var str = [];
+            for (var p in obj) {
+              str.push(
+                encodeURIComponent(p) + "=" + encodeURIComponent(obj[p])
+              );
+            }
+            return str.join("&");
+          }
+        }).then(data => {
+          console.log(data.data);
+          let ResName=data.data.name;
+          let ResPsw=data.data.password;
+          if(ResName==user&&ResPsw==psw){
+            this.$router.push({name:"recommend"})
+          }else{
+            this.$alert("用户名或密码错误");
+          }
+        });
       }
     }
   }

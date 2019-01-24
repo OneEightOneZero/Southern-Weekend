@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const router = express.Router();
 const {
     connect,
@@ -16,11 +17,28 @@ router.get('/', function (req, res, next) {
 // 查询
 router.get('/getNews', async (req, res, next) => {
     let {author} = req.query
-    console.log(author)
     let data = await find(`news`, author ? {
         author
     } : {})
     res.send(data);
+    // res.send(123);
+});
+// 查（登录）
+router.post('/RouterLogin',bodyParser.urlencoded({ extended: false }), async (req, res, next) => {
+    let {name,password} = req.body
+    password = isNaN(password) ? password : password*1;
+    let data = await find(`user`, name ? {
+        name
+    } : {})
+    if(data[0].password==password){
+        res.send({
+            status:1,
+            name,
+            password
+        });
+    }else{
+        res.send({status:0})
+    }
 });
 // 增
 router.get('/billAdd', async (req, res, next) => {
@@ -68,31 +86,7 @@ router.get('/updata', async (req, res, next) => {
     let data = await del('list', { _id: ObjectId(_id) });
     res.send('succes');
 });
-// 查（登录）
-router.post('/RouterLogin', async (req, res, next) => {
-    let {
-        user,
-        mima
-    } = req.body
-    let data = await find(`name`, user ? {
-        user
-    } : {})
-    // console.log(user,mima);
-    if (data.length == 0) {
-        res.send({status:'fail'});
-    } else if (data[0].mima == mima) {
-        res.send({
-            status:'success',
-            token: token.createToken({
-                user,
-                mima
-            },60)
-        });
-    } else {
-        res.send({status:'fail'});
-    }
-});
 router.post('/autoLogin', async (req, res, next) =>{
     res.send(token.checkToken(req.headers.token)); 
 });
-module.exports = router;
+module.exports = router
