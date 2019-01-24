@@ -66,10 +66,14 @@ const routes = [{
     component: RouterEnter  
 },{
     path: '/routerLogin',
+    name:'routerLogin',
     component: RouterLogin  
 },{
     path: '/details/:id',
     component: Details  
+},{                                                    
+    path: '/',
+    redirect: '/app/recommend'
 }
 ]
 

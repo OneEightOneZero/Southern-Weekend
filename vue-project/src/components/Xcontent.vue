@@ -1,6 +1,6 @@
 <template>
   <div data-v-8e74bc8a class="contents contents--border">
-    <a data-v-8e74bc8a href="#/content/144205" class="contents__item" v-for="(val,idx) in news" :key="idx" v-if="val.short_subject.indexOf(searchInput)+1">
+    <router-link :to="'/details/'+idx" data-v-8e74bc8a href="#/content/144205" class="contents__item" v-for="(val,idx) in news" :key="idx" v-if="val.short_subject.indexOf(searchInput)+1">
       <section data-v-29d876ad data-v-8e74bc8a class="infzm-content-item infzm-content-item--right">
         <div data-v-29d876ad class="infzm-content-item__text" v-text="val.short_subject">
           <span data-v-29d876ad></span>
@@ -24,7 +24,7 @@
           <span data-v-29d876ad class="meta__time">刚刚</span>
         </div>
       </section>
-    </a>
+    </router-link>
     <p @click="getNews">查看更多 >></p>
   </div>
 </template>
