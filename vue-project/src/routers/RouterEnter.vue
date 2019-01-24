@@ -26,32 +26,42 @@ export default {
     register() {
       let user = this.$refs.user.value;
       let psw = this.$refs.psw.value;
-      if(user===''){
-        this.$alert('手机号码不能为空')          
-      }else if(psw===''){
-          this.$alert('密码不能为空')  
-      }else if(user.length !=11){
-          this.$alert('手机号码为11位')  
-          return
-      }else {
-         let myreg = /^0?(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/;
-         if(!myreg.test(user)){
-            this.$alert('手机号码格式不正确');
+      if (user === "") {
+        this.$alert("手机号码不能为空");
+      } else if (psw === "") {
+        this.$alert("密码不能为空");
+      } else if (user.length != 11) {
+        this.$alert("手机号码为11位");
+        return;
+      } else {
+        let myreg = /^0?(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/;
+        if (!myreg.test(user)) {
+          this.$alert("手机号码格式不正确");
+          return;
+        } else {
+          if (psw === "") {
+            this.$alert("密码不能为空");
             return;
-         }else{
-            if (psw === "") {
-                this.$alert("密码不能为空")
-                return
-                } else {
-                    this.$axios({
-                    method: "post",
-                    url: "http://localhost:3000/setting/RouterEnter",
-                    data: { 'name': user, 'password': psw },
-                    }) 
-                } 
-
-         }
-      }  
+          } else {
+            this.$axios({
+              method: "post",
+              url: "http://localhost:3000/setting/RouterEnter",
+              data: { "name": user, "password": psw },
+              transformRequest: function(obj) {
+                var str = [];
+                for (var p in obj) {
+                  str.push(
+                    encodeURIComponent(p) + "=" + encodeURIComponent(obj[p])
+                  );
+                }
+                return str.join("&");
+              }
+            }).then(data => {
+              console.log(data);
+            });
+          }
+        }
+      }
     }
   }
 };
