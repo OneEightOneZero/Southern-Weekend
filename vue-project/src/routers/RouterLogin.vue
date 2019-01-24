@@ -9,17 +9,16 @@
       <span>
         <i>密码</i>
         <br>
-        <input type="text" ref="mima" placeholder="密码">
+        <input type="text" ref="psw" placeholder="密码">
       </span>
       <span>
         <input type="checkbox" value> 记住密码
       </span>
-      <button>登录</button>
+      <button @click="add">登录</button>
       <router-link to="/RouterEnter" class="zhuce">免费注册？</router-link>
     </div>
   </div>
 </template>
-
 
 <style scoped>
 #box {
