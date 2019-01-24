@@ -44,11 +44,16 @@ router.post('/RouterLogin',bodyParser.urlencoded({ extended: false }), async (re
 router.post('/RouterEnter', bodyParser.urlencoded({ extended: false }),async (req, res, next) => {
     let {name,password} = req.body
     password = isNaN(password) ? password : password*1;
-    let data = await insert(`user`, [{
-        name,
-        password
-    }])
-    res.send(data);
+    let data = await find(`user`, name ? {name} : {})
+    if(data[0]!=null){
+        res.send({status:0})
+    }else{
+        let datanew = await insert(`user`, [{
+                name,
+                password
+            }])
+        res.send({status:1})
+    }
 });
 // 改
 router.get('/billUpdate', async (req, res, next) => {

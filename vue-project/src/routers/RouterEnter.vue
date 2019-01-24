@@ -57,7 +57,12 @@ export default {
                 return str.join("&");
               }
             }).then(data => {
-              console.log(data);
+              console.log(data.data);
+              if(data.data.status==0){
+                this.$alert("此用户名已存在");
+              }else{
+                this.$router.push({ name: "routerLogin" });
+              }
             });
           }
         }
