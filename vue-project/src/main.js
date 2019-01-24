@@ -13,6 +13,11 @@ import router from './configs/router.js'
 import './css/index.css'
 //引入footer样式
 import './css/footer.css'
+<<<<<<< HEAD
+=======
+//引入recommendSearch样式
+
+>>>>>>> 3915ba8845559046dc83f846e939efa8a518c064
 // 引入Element
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';

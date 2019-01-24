@@ -8,7 +8,7 @@ export default {
   data(){
     return{
       list:['推荐','新闻','观点','文化','人物','影像','专题','生活'],
-      routerlink:['recommend','new'],
+      routerlink:['recommend','new','viewpoint','culture','people','image','special','live'],
       active:0
     }
   },

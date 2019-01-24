@@ -13,6 +13,12 @@ import RouterEnter from '../routers/RouterEnter.vue'
 //二层路由
 import Recommend from '../routers/recommend.vue'
 import New from '../routers/new.vue'
+import Viewpoint from '../routers/Viewpoint.vue'
+import Culture from '../routers/Culture.vue'
+import People from '../routers/People.vue'
+import Image from '../routers/Image.vue'
+import Special from '../routers/Special.vue'
+import Live from '../routers/Live.vue'
 
 //配置路由
 const routes = [{
@@ -26,6 +32,30 @@ const routes = [{
         path: 'new',
         name:"new",
         component: New
+    },{                                 
+        path: 'viewpoint',
+        name:"viewpoint",
+        component: Viewpoint
+    },{                                 
+        path: 'culture',
+        name:"culture",
+        component: Culture
+    },{                                 
+        path: 'people',
+        name:"people",
+        component: People
+    },{                                 
+        path: 'image',
+        name:"image",
+        component: Image
+    },{                                 
+        path: 'special',
+        name:"special",
+        component: Special
+    },{                                 
+        path: 'live',
+        name:"live",
+        component: Live
     }]
 },{
     path: '/recommendSearch',

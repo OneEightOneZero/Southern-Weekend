@@ -12,6 +12,7 @@ import Xheader from './components/Xheader.vue'
 import Xnavigation from './components/Xnavigation.vue'
 import Xfooter from './components/Xfooter.vue'
 
+
 export default {
   name: 'app',
   components: {
