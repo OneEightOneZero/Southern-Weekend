@@ -1,6 +1,6 @@
 <template>
   <div data-v-8e74bc8a class="contents contents--border">
-    <a data-v-8e74bc8a href="#/content/144205" class="contents__item" v-for="(val,idx) in news" :key="idx">
+    <a data-v-8e74bc8a href="#/content/144205" class="contents__item" v-for="(val,idx) in news" :key="idx" v-if="val.short_subject.indexOf(searchInput)+1">
       <section data-v-29d876ad data-v-8e74bc8a class="infzm-content-item infzm-content-item--right">
         <div data-v-29d876ad class="infzm-content-item__text" v-text="val.short_subject">
           <span data-v-29d876ad></span>
@@ -31,11 +31,13 @@
 <script>
 //引入content样式
 import '../css/content.css'
-
+import observer from '../libs/observer.js'
 export default {
   data() {
     return {
-      news: []
+      news: [],
+      // 从xsearch组件获取
+      searchInput:""
     };
   },
   methods: {
@@ -47,6 +49,10 @@ export default {
   },
   created() {
     this.getNews();
+    // 订阅者
+    observer.on('search',(data)=>{
+      this.searchInput = data
+    })
   }
 };
 </script>

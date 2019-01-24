@@ -16,7 +16,7 @@ export default {
 p{
     display: inline;
     position:relative;
-    top:122px;
+    top:150px;
     left:20px;
     font-size:20px;
 }

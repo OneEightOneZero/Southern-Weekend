@@ -22,7 +22,7 @@ export default {
 <style scoped>
   .el-carousel{
     position: relative;
-    top:92px;
+    top:135px;
   }
   .el-carousel__item img {
     width:100%;

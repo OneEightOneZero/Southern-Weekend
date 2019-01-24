@@ -3,7 +3,7 @@
     <form class="weui-search-bar__form" @click="showsearch">
       <div class="weui-search-bar__box">
         <i class="weui-icon-search"></i>
-        <input
+        <input v-model="searchInput"
           ref="foc"
           type="search"
           class="weui-search-bar__input"
@@ -27,16 +27,25 @@
 </template>
 <script>
 import 'weui';
+import observer from '../libs/observer.js'
 export default {
   data(){
     return {
-      isshow:false
+      isshow:false,
+      // 搜索框的值
+      searchInput:""
     }
   },
   methods:{
     showsearch(){
       this.$refs.foc.focus();
       this.isshow=!this.isshow;
+    }
+  },
+  watch: {
+    searchInput(){
+      // 发布事件
+      observer.emit('search',this.searchInput)
     }
   }
 };
@@ -46,7 +55,8 @@ export default {
   position:fixed;
   width:100%;
   left:0;
-  top:39px;
+  top:91px;
+  z-index:5;
 }
 </style>
 

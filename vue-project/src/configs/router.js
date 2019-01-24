@@ -9,6 +9,7 @@ import App from '../App.vue'
 import RecommendSearch from '../routers/recommendSearch.vue'
 import RouterLogin from '../routers/RouterLogin.vue'
 import RouterEnter from '../routers/RouterEnter.vue'
+import Details from '../routers/Details.vue'
 
 //二层路由
 import Recommend from '../routers/recommend.vue'
@@ -63,6 +64,9 @@ const routes = [{
 },{
     path: '/routerEnter',
     component: RouterEnter  
+},{
+    path: '/routerLogin',
+    component: RouterLogin  
 },{
     path: '/routerLogin',
     component: RouterLogin  
