@@ -14,8 +14,8 @@ export default {
   },
   methods:{
     changeActive(idx){
-      this.active=idx,
-      this.$router.push({name:this.routerlink[idx]})
+      this.$router.push({name:this.routerlink[idx]}),
+      this.active=idx
     }
   }
 };
