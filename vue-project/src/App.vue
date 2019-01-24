@@ -4,7 +4,7 @@
     <Xnavigation></Xnavigation>
     <router-view></router-view>
     <Xfooter></Xfooter>
-    <router-view></router-view>
+    <Abc></Abc>
   </div>
 </template>
 
@@ -13,12 +13,15 @@ import Xheader from './components/Xheader.vue'
 import Xnavigation from './components/Xnavigation.vue'
 import Xfooter from './components/Xfooter.vue'
 
+import Abc from './1.vue'
+
 export default {
   name: 'app',
   components: {
     Xheader,
     Xnavigation,
-    Xfooter
+    Xfooter,
+    Abc
   }
 }
 </script>
