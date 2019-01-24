@@ -41,21 +41,15 @@ router.post('/RouterLogin',bodyParser.urlencoded({ extended: false }), async (re
     }
 });
 // 增
-router.get('/billAdd', async (req, res, next) => {
+router.post('/RouterEnter', async (req, res, next) => {
     let {
         name,
-        asupplierge,
-        price,
-        pay,
-        time
+        password
     } = req.query
     // console.log(name)
-    let data = await insert(`list`, [{
-        name: name,
-        asupplierge: asupplierge,
-        price: price,
-        pay: pay,
-        time: time
+    let data = await insert(`user`, [{
+        name: user,
+        password:psw
     }])
     res.send(data);
 });

@@ -14,7 +14,7 @@
       <span>
         <input type="checkbox" value> 记住密码
       </span>
-      <button @click="add">登录</button>
+      <button  @click="add">登录</button>
       <router-link to="/RouterEnter" class="zhuce">免费注册？</router-link>
     </div>
   </div>
@@ -30,7 +30,6 @@ export default {
     add() {
       let user = this.$refs.user.value;
       let psw = this.$refs.psw.value;
-      console.log(user, psw);
       if (user == "") {
         this.$alert("手机号码不能为空");
       } else if (psw == "") {
@@ -39,7 +38,7 @@ export default {
         this.$axios({
           method: "post",
           url: "http://localhost:3000/setting/RouterLogin",
-          data: { "name": user, "password": psw },
+          data: { name: user, password: psw },
           transformRequest: function(obj) {
             var str = [];
             for (var p in obj) {
@@ -50,12 +49,11 @@ export default {
             return str.join("&");
           }
         }).then(data => {
-          console.log(data.data);
-          let ResName=data.data.name;
-          let ResPsw=data.data.password;
-          if(ResName==user&&ResPsw==psw){
-            this.$router.push({name:"recommend"})
-          }else{
+          let ResName = data.data.name;
+          let ResPsw = data.data.password;
+          if (ResName == user && ResPsw == psw) {
+            this.$router.push({ name: "recommend" });
+          } else {
             this.$alert("用户名或密码错误");
           }
         });
@@ -64,7 +62,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 #box {
   height: 100%;
